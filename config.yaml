@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: elect
+spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: elect
+    template:
+      metadata:
+        labels: 
+          app: elect
+      spec:
+        containers:
+        - name: elect
+          image: domiwei/elect:v1.0
+          imagePullPolicy: Always
